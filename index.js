@@ -13,3 +13,18 @@ const passwordButton = document.querySelector('.btn-password-toggle');
 // Funzioni
 
 // Event listeners
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const arrayInputs = [...inputFields];
+  console.log(arrayInputs);
+  arrayInputs.forEach(value => {
+    const invalid = document.querySelector(`.invalid-${value.name}`);
+    if (!value.value) {
+      invalid.classList.add('d-block');
+      invalid.textContent = 'Campo obbligatorio';
+    } else {
+      invalid.classList.remove('d-block');
+      invalid.textContent = '';
+    }
+  });
+});
