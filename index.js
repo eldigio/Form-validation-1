@@ -9,7 +9,7 @@ const inputFields = document.querySelectorAll(
 );
 const errorFields = document.querySelectorAll('.invalid-feedback');
 const passwordButton = document.querySelector('.btn-password-toggle');
-console.log('Pippo');
+
 // Funzioni
 
 // Event listeners
