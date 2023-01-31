@@ -10,21 +10,20 @@ const inputFields = document.querySelectorAll(
 const errorFields = document.querySelectorAll('.invalid-feedback');
 const passwordButton = document.querySelector('.btn-password-toggle');
 
-// Funzioni
+// Functions
+const showHideError = (element, mex) => {
+  element.classList.add('d-block');
+  element.textContent = mex;
+};
 
 // Event listeners
 form.addEventListener('submit', event => {
   event.preventDefault();
   const arrayInputs = [...inputFields];
-  console.log(arrayInputs);
+  // console.log(arrayInputs);
   arrayInputs.forEach(value => {
     const invalid = document.querySelector(`.invalid-${value.name}`);
-    if (!value.value) {
-      invalid.classList.add('d-block');
-      invalid.textContent = 'Campo obbligatorio';
-    } else {
-      invalid.classList.remove('d-block');
-      invalid.textContent = '';
-    }
+    if (!value.value) showHideError(invalid, 'Campo obbligatorio');
+    else showHideError(invalid, '');
   });
 });
